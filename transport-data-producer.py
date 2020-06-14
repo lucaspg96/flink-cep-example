@@ -1,4 +1,5 @@
 from random import randint
+from numpy.random import shuffle
 
 product_id = 0
 
@@ -12,7 +13,6 @@ def generate_transport(src, dst):
 def generate_travel():
     global product_id
     travel_size = randint(0, 10)
-    travel_size = 10
     product_id += 1
     traj = ["A"]
     for i in range(0, travel_size):
@@ -24,7 +24,7 @@ def generate_travel():
 
 from kafka import KafkaProducer
 import time
-producer = KafkaProducer(bootstrap_servers='kafka:9092')
+producer = KafkaProducer(bootstrap_servers='localhost:9092')
 
 while True:
     [producer.send("transports",m) for m in generate_travel()]

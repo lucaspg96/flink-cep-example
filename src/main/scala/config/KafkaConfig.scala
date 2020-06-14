@@ -4,7 +4,7 @@ import java.util.Properties
 
 object KafkaConfig {
 
-  val broker: String = "kafka:9092"
+  val broker: String = "localhost:9092"
 
   val topic: String = "transports"
 
