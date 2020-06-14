@@ -10,6 +10,8 @@ object EndCondition extends IterativeCondition[Transport] {
     val route = ctx.getEventsForPattern("middle").asScala
     val currentPosition = route.last.to
 
+    // verificamos se o transporte finalizou no ponto pré-definido
+    // e se ele parte da última localização registrada
     value.to == TRANSPORT_FINISH_POSITION && value.from == currentPosition
   }
 
